@@ -1,6 +1,6 @@
 ﻿const cardsColor = ['chase', 'chase', 'everest', 'everest', 'marshall', 'marshall', 'rocky', 'rocky', 'rubble', 'rubble', 'ryder', 'ryder', 'skye', 'skye', 'tracker', 'tracker', 'zuma', 'zuma'];
 
-let cards = document.querySelectorAll('div');
+let cards = document.querySelectorAll('.game>div');
 cards = [...cards];
 const startTime = new Date().getTime();
 
@@ -12,7 +12,7 @@ let gameResult = 0;
 const clickCard = function() {
   activeCard = this;
   if(activeCard == activeCards[0]) return;
-  activeCard.classList.remove('hidden');
+  activeCard.classList.remove('logo');
   if(activeCards.length === 0){
 	  activeCards[0] = activeCard;
 	  return
@@ -31,7 +31,7 @@ const clickCard = function() {
 				alert(`You won after ${gameTime} seconds`);
 				location.reload();
 			}
-		} else {activeCards.forEach( card => card.classList.add('hidden'))
+		} else {activeCards.forEach( card => card.classList.add('logo'))
 		}
 		activeCard = '';
 		activeCards.length = 0;
@@ -48,7 +48,7 @@ const init = function() {
  });
 	setTimeout( function() {
 		cards.forEach( card => {
-			card.classList.add('hidden');
+			card.classList.add('logo');
 			card.addEventListener('click', clickCard);
    })
  }, 1000)

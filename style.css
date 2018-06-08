@@ -1,102 +1,78 @@
-*,
-*::before,
-*::after{
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+* {
     box-sizing: border-box;
     margin: 0;
-    padding: 0;
-}   
-body{    
-    margin: 0 auto;
-    background-color: rgb(10,85,135);
-    /* overflow: hidden; */
-}/*
-.wrapper{
-    height: 100vh;
-    background-image: url(./patrol/bg2.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    border: 2px solid black;
+		padding: 0;
+		background-size: contain;
+  	background-repeat: no-repeat;
+		background-position: center;
+		background-color: rgb(10,85,135);
+		font-family: 'Roboto', sans-serif;
+		font-variant: small-caps;
+		text-align: center;
+		color: white;
 }
-.right{
-    background-color: white;
-    width: 60vw;
-    position: relative;
-    left: 40vw;
-    border: 2px solid yellow;
+.title{		
+	font-size: 2rem;
 }
-.title{
-    position: relative;
-    border: 2px solid red;
-}*/
-body {
+.game{
+	width: 90vw; height: 90vh;
+	position: absolute;
+	left: 50%; top: 50%;
+	transform: translate(-50%,-50%); 
 	display: flex;
-	flex-wrap: wrap;
-  justify-content: center;
-}
-/* .wrapper {
-  display: flex;
   flex-wrap: wrap;
-	width: 50vw;
-	flex-basis: 16vw;
-  flex-grow: 1;
-  height: 33.33vh; 
-} */
-div {
-  background-color: white;
-	border: 4px solid rgb(10,85,135);
-	flex-basis: 16vw;
-  flex-grow: 1;
-  height: 33.33vh; 
-  min-width: 237px;
-  min-height: 261px;
+}
+.game>div {
+	background-color: white;
+  border: 15px solid rgb(10,85,135);
+  flex-basis: 15%;
+	flex-grow: 1;
+	height: 33.33%;
+	border-radius: 10%;
+}
+.game>div:hover{
+	transition: all 0.3s linear;
+	box-shadow: 0px 0px 25px 0px #4b0175;
+
 }
 @media (orientation: portrait) {
-  div{
-		flex-basis: 20vw;
-		flex-grow: 2;
-    height: 20vh;
+  .game>div{
+    flex-basis: 25vw;
+		height: 15vh;
+		border: 5px solid rgb(10,85,135);
   }
 }
 .chase {
     background-image: url(./patrol/chase.png);
-    background-size: cover;
 }
 .everest {
 		background-image: url(./patrol/everest.png);
-		background-size: cover;
 }
 .marshall {
 		background-image: url(./patrol/marshall.png);
-		background-size: cover;
 }
 .rocky {
 		background-image: url(./patrol/rocky.png);
-		background-size: cover;
 }
 .rubble {
 		background-image: url(./patrol/rubble.png);
-		background-size: cover;
 }
 .ryder {
 		background-image: url(./patrol/ryder.png);
-		background-size: cover;
 }
 .skye {
 		background-image: url(./patrol/skye.png);
-		background-size: cover;
 }
 .tracker {
 		background-image: url(./patrol/tracker.png);
-		background-size: cover;
 }
 .zuma {
 		background-image: url(./patrol/zuma.png);
-		background-size: cover;
 }
 .off {
-  background-color: yellow;
+  background-color: rgb(10,85,135);
 }
-.hidden {
-  background-color: orange;
+.logo {
+  background-image: url(./patrol/logo.png);	
 }
