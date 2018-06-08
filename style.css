@@ -1,0 +1,14 @@
+*,
+*::before,
+*::after{
+    box-sizing: border-box;
+}   
+body{
+    height: 100vh;
+    margin: 0 auto;
+    background-color: rgb(10,85,135);
+    background-image: url(./patrol/bg2.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
