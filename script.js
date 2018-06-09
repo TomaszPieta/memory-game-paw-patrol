@@ -1,6 +1,61 @@
-﻿const cardsColor = ['chase', 'chase', 'everest', 'everest', 'marshall', 'marshall', 'rocky', 'rocky', 'rubble', 'rubble', 'ryder', 'ryder', 'skye', 'skye', 'tracker', 'tracker', 'zuma', 'zuma'];
+﻿document.addEventListener('DOMContentLoaded', function() {
+	document.querySelector('#btnSave').addEventListener('click', function(e) {
+		e.preventDefault();
 
-let cards = document.querySelectorAll('.game>div');
+		let name = document.querySelector('input[name=name]').value;
+		let gametime = document.querySelector('input[name=gametime]').value;
+
+		localStorage.setItem('name', name);
+		localStorage.setItem('gametime', gametime);
+	});
+
+	document.querySelector('#btnRead').addEventListener('click', function(e) {
+		e.preventDefault();
+		let name = '';
+		let gametime = '';
+		if (localStorage.getItem('name') != null) {
+			name = localStorage.getItem('name');
+		}
+		if (localStorage.getItem('gametime') != null) {
+			name = localStorage.getItem('gametime');
+		}
+		if (localStorage.getItem('name') != null || localStorage.getItem('gametime') != null) {
+			alert(name + ' ' + gametime);
+		} else {
+			alert('Nie zapisałeś danych w localStorage')
+		}
+	});
+
+	document.querySelector('#btnDelete').addEventListener('click', function(e) {
+		localStorage.removeItem('name');
+		localStorage.removeItem('gametime');
+	});
+});
+
+
+
+
+let start = () => {
+	document.getElementById("start").style.visibility = "visible";
+	document.getElementById("end").style.visibility = "hidden";
+}
+let game = () => {
+	document.getElementById("game").style.visibility = "visible";
+	document.getElementById("start").style.visibility = "hidden";
+	document.getElementById("end").style.visibility = "hidden";
+}
+let end = () => {
+	document.getElementById("game").style.visibility = "hidden";
+	document.getElementById("end").style.visibility = "visible";
+}
+const name = function(){
+	const userName = (endTime - startTime)/1000;
+				localStorage.setItem("gametime", gameTime);
+}
+
+const dogs = ['chase', 'chase', 'everest', 'everest', 'marshall', 'marshall', 'rocky', 'rocky', 'rubble', 'rubble', 'ryder', 'ryder', 'skye', 'skye', 'tracker', 'tracker', 'zuma', 'zuma'];
+// , 'everest', 'everest', 'marshall', 'marshall', 'rocky', 'rocky', 'rubble', 'rubble', 'ryder', 'ryder', 'skye', 'skye', 'tracker', 'tracker', 'zuma', 'zuma'
+let cards = document.querySelectorAll('#game>div');
 cards = [...cards];
 const startTime = new Date().getTime();
 
@@ -28,8 +83,10 @@ const clickCard = function() {
 			if(gameResult == gamePairs){
 				const endTime = new Date().getTime();
 				const gameTime = (endTime - startTime)/1000;
-				alert(`You won after ${gameTime} seconds`);
-				location.reload();
+				localStorage.setItem("gametime", gameTime);
+				end();
+				document.getElementById("result").innerHTML = localStorage.getItem("gametime");
+				document.getElementById("user").innerHTML = localStorage.getItem("name");
 			}
 		} else {activeCards.forEach( card => card.classList.add('logo'))
 		}
@@ -42,9 +99,9 @@ const clickCard = function() {
 
 const init = function() {
 	cards.forEach( card => {
-		const position = Math.floor(Math.random()*cardsColor.length);
-		card.classList.add(cardsColor[position]);
-		cardsColor.splice(position,1);
+		const position = Math.floor(Math.random()*dogs.length);
+		card.classList.add(dogs[position]);
+		dogs.splice(position,1);
  });
 	setTimeout( function() {
 		cards.forEach( card => {

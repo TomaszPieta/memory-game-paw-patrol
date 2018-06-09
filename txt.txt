@@ -1,0 +1,10 @@
+The rules for playing Memory Game:
+1. All the cards are mixed up.
+2. They are visible only for one second, then turned face down.
+3. You should turn over any two cards.
+4. If this two cards match, they stay visible.
+5. If they don't match, they are turned back over.
+6. You should remember what was on each card and where it was.
+7. The game is over when all the cards have been matched.
+
+Paw Patrol is an animated tv series showing the adventures of a boy named Ryder who is the leader of a pack of search and rescue dogs known as the Paw Patrol. Each dog has a specific set of skills, so they are protecting the neighbourhood as a firefighter or a police officer. They are equipped with special vehicles and backpacks that contain tools that relate to their jobs.

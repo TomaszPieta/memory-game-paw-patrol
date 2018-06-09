@@ -9,21 +9,50 @@
 		background-color: rgb(10,85,135);
 		font-family: 'Roboto', sans-serif;
 		font-variant: small-caps;
-		text-align: center;
+		/* text-align: center; */
 		color: white;
+		font-size: 1.3rem;
 }
-.title{		
-	font-size: 2rem;
-}
-.game{
+
+#start, #end, #game {
 	width: 90vw; height: 90vh;
 	position: absolute;
 	left: 50%; top: 50%;
-	transform: translate(-50%,-50%); 
+	transform: translate(-50%,-50%);
 	display: flex;
-  flex-wrap: wrap;
+	flex-wrap: wrap;
+	
+	/* overflow: hidden; */
 }
-.game>div {
+#start>div{
+	flex-basis: 50%;
+	flex-grow: 1;
+	text-align: center;
+	margin: 0 auto;
+	border: 2px solid black;
+	padding: 20px;
+}
+#start>div>img{
+	height: 80vh;
+}
+#start>div>p, #start>div>ol{
+	text-align: justify;
+	padding: 20px;
+}
+#end>div{
+	flex-basis: 100%;
+	text-align: center;
+	margin: 0 auto;
+	border: 2px solid black;
+	padding: 20px;
+}
+.hidden {
+	visibility: hidden;
+}
+.visible{
+	visibility: visible;
+}
+#game>div {
 	background-color: white;
   border: 15px solid rgb(10,85,135);
   flex-basis: 15%;
@@ -31,17 +60,44 @@
 	height: 33.33%;
 	border-radius: 10%;
 }
-.game>div:hover{
-	transition: all 0.3s linear;
+#game>div:hover{
+	transition: all 0.5s linear;
 	box-shadow: 0px 0px 25px 0px #4b0175;
-
+	transform: scale(1.1);
 }
-@media (orientation: portrait) {
-  .game>div{
+.manual{
+	visibility: hidden;
+}
+a{
+	text-decoration: none;
+}
+input{
+	width: 140px;
+	text-align: center;
+}
+@media (orientation: portrait), (max-width: 900px) {
+  #game>div{
     flex-basis: 25vw;
 		height: 15vh;
 		border: 5px solid rgb(10,85,135);
-  }
+	}
+	.manual{
+		visibility: visible;
+	}
+}
+.button{
+	border: 3px solid white;
+	background-color: rgb(10,85,135);
+	color: white;
+	width: 200px;
+	text-align: center;
+	margin: 0 auto;
+}
+.button:hover{
+	color: rgb(10,85,135);
+	font-weight: bold;
+	background-color: white;
+	transition: all 0.3s linear;
 }
 .chase {
     background-image: url(./patrol/chase.png);
@@ -71,7 +127,8 @@
 		background-image: url(./patrol/zuma.png);
 }
 .off {
-  background-color: rgb(10,85,135);
+	background-color: rgb(10,85,135);
+	filter: grayscale(100%);
 }
 .logo {
   background-image: url(./patrol/logo.png);	
