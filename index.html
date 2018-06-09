@@ -8,30 +8,11 @@
     <link rel="stylesheet" href="style.css">
     </head>
 <body>
-    <div id="start">            
+    <div id="start">
         <div>
-                <form class="form">
-                        <!-- <fieldset> -->
-                            <!-- <div class="row">
-                                <div class="col-1-2"> -->
-                                    <label for="name">Enter Your Name</label><br>
-                                    <input type="text" name="name" id="name"><br>
-                                <!-- </div>                                
-                            </div> -->
-                            <!-- <div class="row">
-                                <div class="col-1-1"> -->
-                                    <button type="button" class="button" id="btnSave">Submit</button><br>
-                                    <button type="button" class="button" id="btnRead">Odczytaj dane</button><br>
-                                    <button type="button" class="button" id="btnDelete">Usuń dane</button><br>
-                                <!-- </div>
-                            </div> -->
-                        <!-- </fieldset> -->
-                    </form>
-            <img src="patrol/bg.jpg"/>
-        </div>
-        <div>
-            <h1>Paw Patrol Memory Game</h1>        
-            <p>Paw Patrol is an animated tv series showing the adventures of a boy and a pack of search and rescue dogs. Each of them has a specific set of skills and they are protecting the neighbourhood as a firefighter or a police officer. They are equipped with special vehicles and backpacks that contain tools that relate to their jobs.</p>
+            <h1>Paw Patrol Memory Game</h1>
+            <p>Paw Patrol is an animated tv series showing the adventures of a boy and a pack of search and rescue dogs. Each of them has a specific set of skills and they are protecting the neighbourhood as a firefighter or a police officer. They are equipped with special vehicles and backpacks that contain tools that relate to their jobs.</p>           
+
             <h2>The rules for playing Memory Game:</h2><ol>
             <li>All the cards are mixed up.</li>
             <li>They are visible only for one second, then turned face down.</li>
@@ -40,29 +21,42 @@
             <li>If they don't match, they are turned back over.</li>
             <li>You should remember what was on each card and where it was.</li>
             <li>The game is over when all the cards have been matched.</li></ol>
-            <div class="mini" onclick="game()"><img src="patrol/playthegame.png"></div>
-        </div> 
+
+            <label for="surname">Enter Your Name</label><br>
+            <input type="text" name="surname" id="surname"><br>
+            <button type="button" id="btnSave">Submit</button><br>
+            <!-- <button type="button" class="button" id="btnRead">Odczytaj dane</button><br>  -->
+            <button type="button" onclick="game()">Play Game</button><br>
+        </div>
+        <div>                       
+            <img src="./patrol/bg0.jpg"/>
+        </div>
     </div>
-    <div id="game" class="hidden">        
+    <div id="game" class="hidden">
         <div></div><div></div><div></div><div></div><div></div><div></div>
         <div></div><div></div><div></div><div></div><div></div><div></div>
-        <div></div><div></div><div></div><div></div><div></div><div></div>        
+        <div></div><div></div><div></div><div></div><div></div><div></div>
+        <span onclick="end()">End the game very quickly for testing purposes</span>     
     </div>    
     <div id="end" class="hidden">
         <div>
-            <div>User <span id="user"></span> has won the game after <span id="result"></span> seconds.</div>
-            <div class="button" onclick="game()">Start over</div>
-            <div class="button" onclick="start()">Read the manual</div>
+            <div>User <span id="user"></span> has won the game after <span id="result"></span> seconds.</div><br>
+            <div><button onclick="game()">Start Over</button></div><br>
+            <div><button onclick="start()">Read Manual</button></div><br>
+            <div>Scoreboard Table:</div><br>
             <table>
-                    <tr>
-                      <th>Month</th>
-                      <th>Savings</th>
-                    </tr>
-                    <tr>
-                      <td>January</td>
-                      <td>$100</td>
-                    </tr>
-                   </table>
+                <tr>
+                    <th>User</th>
+                    <th>Seconds</th>
+                </tr>
+                <tr>
+                    <td><span id="user"></span></td>
+                    <td><span id="result"></span></td>
+                </tr>
+            </table>
+        </div>
+        <div>                       
+            <img src="./patrol/bg1.jpg"/>
         </div>
     </div>
     <script type="text/javascript" src="script.js"></script>

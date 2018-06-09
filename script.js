@@ -2,25 +2,25 @@
 	document.querySelector('#btnSave').addEventListener('click', function(e) {
 		e.preventDefault();
 
-		let name = document.querySelector('input[name=name]').value;
-		let gametime = document.querySelector('input[name=gametime]').value;
+		// var name = document.querySelector('input[name=name]').value;
+		var surname = document.querySelector('input[name=surname]').value;
 
-		localStorage.setItem('name', name);
-		localStorage.setItem('gametime', gametime);
+		// localStorage.setItem('name', name);
+		localStorage.setItem('surname', surname);
 	});
 
 	document.querySelector('#btnRead').addEventListener('click', function(e) {
 		e.preventDefault();
-		let name = '';
-		let gametime = '';
+		var name = '';
+		var surname = '';
 		if (localStorage.getItem('name') != null) {
 			name = localStorage.getItem('name');
 		}
-		if (localStorage.getItem('gametime') != null) {
-			name = localStorage.getItem('gametime');
+		if (localStorage.getItem('surname') != null) {
+			name = localStorage.getItem('surname');
 		}
-		if (localStorage.getItem('name') != null || localStorage.getItem('gametime') != null) {
-			alert(name + ' ' + gametime);
+		if (localStorage.getItem('name') != null || localStorage.getItem('surname') != null) {
+			alert(name + ' ' + surname);
 		} else {
 			alert('Nie zapisałeś danych w localStorage')
 		}
@@ -28,7 +28,7 @@
 
 	document.querySelector('#btnDelete').addEventListener('click', function(e) {
 		localStorage.removeItem('name');
-		localStorage.removeItem('gametime');
+		localStorage.removeItem('surname');
 	});
 });
 
@@ -47,14 +47,11 @@ let game = () => {
 let end = () => {
 	document.getElementById("game").style.visibility = "hidden";
 	document.getElementById("end").style.visibility = "visible";
-}
-const name = function(){
-	const userName = (endTime - startTime)/1000;
-				localStorage.setItem("gametime", gameTime);
+	
 }
 
 const dogs = ['chase', 'chase', 'everest', 'everest', 'marshall', 'marshall', 'rocky', 'rocky', 'rubble', 'rubble', 'ryder', 'ryder', 'skye', 'skye', 'tracker', 'tracker', 'zuma', 'zuma'];
-// , 'everest', 'everest', 'marshall', 'marshall', 'rocky', 'rocky', 'rubble', 'rubble', 'ryder', 'ryder', 'skye', 'skye', 'tracker', 'tracker', 'zuma', 'zuma'
+
 let cards = document.querySelectorAll('#game>div');
 cards = [...cards];
 const startTime = new Date().getTime();
@@ -66,8 +63,10 @@ let gameResult = 0;
 
 const clickCard = function() {
   activeCard = this;
+  
   if(activeCard == activeCards[0]) return;
   activeCard.classList.remove('logo');
+  
   if(activeCards.length === 0){
 	  activeCards[0] = activeCard;
 	  return
@@ -86,7 +85,7 @@ const clickCard = function() {
 				localStorage.setItem("gametime", gameTime);
 				end();
 				document.getElementById("result").innerHTML = localStorage.getItem("gametime");
-				document.getElementById("user").innerHTML = localStorage.getItem("name");
+				document.getElementById("user").innerHTML = localStorage.getItem("surname");
 			}
 		} else {activeCards.forEach( card => card.classList.add('logo'))
 		}
@@ -112,3 +111,4 @@ const init = function() {
 }
 
 init();
+

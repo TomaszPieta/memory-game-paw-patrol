@@ -1,50 +1,44 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
+:root {
+	--bg: rgb(80,110,170); 
+}
 * {
     box-sizing: border-box;
-    margin: 0;
-		padding: 0;
 		background-size: contain;
   	background-repeat: no-repeat;
 		background-position: center;
-		background-color: rgb(10,85,135);
+		background-color: var(--bg);
 		font-family: 'Roboto', sans-serif;
 		font-variant: small-caps;
-		/* text-align: center; */
 		color: white;
-		font-size: 1.3rem;
+		font-size: 1.2rem;
 }
-
 #start, #end, #game {
-	width: 90vw; height: 90vh;
+	width: 100vw; height: 100vh;
 	position: absolute;
 	left: 50%; top: 50%;
 	transform: translate(-50%,-50%);
 	display: flex;
 	flex-wrap: wrap;
-	
-	/* overflow: hidden; */
+	overflow-x: hidden;
+	justify-content: center;
 }
-#start>div{
-	flex-basis: 50%;
+#game{
+	padding: 10px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+#start>div, #end>div{
+	flex-basis: 45vw;
 	flex-grow: 1;
 	text-align: center;
+}
+#end>div:not(:nth-child(2)), #start>div:not(:nth-child(2)){
 	margin: 0 auto;
-	border: 2px solid black;
-	padding: 20px;
+	padding: 1rem;
 }
-#start>div>img{
-	height: 80vh;
-}
-#start>div>p, #start>div>ol{
+p, ol{
 	text-align: justify;
-	padding: 20px;
-}
-#end>div{
-	flex-basis: 100%;
-	text-align: center;
-	margin: 0 auto;
-	border: 2px solid black;
-	padding: 20px;
 }
 .hidden {
 	visibility: hidden;
@@ -54,7 +48,7 @@
 }
 #game>div {
 	background-color: white;
-  border: 15px solid rgb(10,85,135);
+  border: 10px solid var(--bg);
   flex-basis: 15%;
 	flex-grow: 1;
 	height: 33.33%;
@@ -65,9 +59,6 @@
 	box-shadow: 0px 0px 25px 0px #4b0175;
 	transform: scale(1.1);
 }
-.manual{
-	visibility: hidden;
-}
 a{
 	text-decoration: none;
 }
@@ -75,30 +66,20 @@ input{
 	width: 140px;
 	text-align: center;
 }
-
 @media (orientation: portrait), (max-width: 900px) {
   #game>div{
     flex-basis: 25vw;
 		height: 15vh;
-		border: 5px solid rgb(10,85,135);
-	}
-	.manual{
-		visibility: visible;
-	}
+		border: 5px solid var(--bg);
+	}	
 }
-.mini{
-	width: 50px; height: 20px;
-}
-.button{
+button{
 	border: 3px solid white;
-	background-color: rgb(10,85,135);
-	color: white;
-	width: 200px;
-	text-align: center;
-	margin: 0 auto;
+	background-color: var(--bg);
+	color: white;	
 }
-.button:hover{
-	color: rgb(10,85,135);
+button:hover{
+	color: var(--bg);
 	font-weight: bold;
 	background-color: white;
 	transition: all 0.3s linear;
@@ -131,9 +112,13 @@ input{
 		background-image: url(./patrol/zuma.png);
 }
 .off {
-	background-color: rgb(10,85,135);
-	filter: grayscale(100%);
+	background-color: var(--bg);
+	filter: grayscale(100%);	
 }
 .logo {
   background-image: url(./patrol/logo.png);	
+}
+table{
+	border: 3px solid white;
+	margin: 0 auto;
 }
